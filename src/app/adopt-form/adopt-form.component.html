@@ -1,20 +1,22 @@
-<form #registerForm="ngForm" (ngSubmit)="registerForm.valid && age.value > 0 && createNewKittenToAdopt()">
-    <div class="error-message"></div>
-    <fieldset>
-        <label for="name">Nom : </label>
-        <input type="text" #name="ngModel" name="name" [(ngModel)]="kittenForm.name" id="name" required>
-    </fieldset>
-    <fieldset>
-        <label for="img">Image : </label>
-        <input type="text" #img="ngModel" name="img" [(ngModel)]="kittenForm.img" id="img" required>
-    </fieldset>
-    <fieldset>
-        <label for="group">Race : </label>
-        <input type="text" #race="ngModel" name="group" [(ngModel)]="kittenForm.group" id="group" required>
-    </fieldset>
-    <fieldset>
-        <label for="age">age : </label>
-        <input type="number" #age="ngModel" name="age" [(ngModel)]="kittenForm.age" id="age" required>
-    </fieldset>
-    <button type="submit">Envoyer</button>
-</form>
+<ng-container >
+    <form #registerForm="ngForm" (ngSubmit)="registerForm.valid && age.value > 0 && createNewKittenToAdopt()">
+        <div class="error-message"></div>
+        <fieldset>
+            <label for="name">Nom : </label>
+            <input type="text" #name="ngModel" name="name" [(ngModel)]="kittenForm.name" id="name" required>
+        </fieldset>
+        <fieldset>
+            <label for="img">Image : </label>
+            <input type="text" #img="ngModel" name="img" [(ngModel)]="kittenForm.img" id="img" required>
+        </fieldset>
+        <fieldset>
+            <label for="group">Race : </label>
+            <input type="text" #race="ngModel" name="group" [(ngModel)]="kittenForm.group" id="group" required>
+        </fieldset>
+        <fieldset>
+            <label for="age">age : </label>
+            <input type="number" #age="ngModel" name="age" [(ngModel)]="kittenForm.age" id="age" required>
+        </fieldset>
+        <button type="submit">Envoyer</button>
+    </form>
+</ng-container>
