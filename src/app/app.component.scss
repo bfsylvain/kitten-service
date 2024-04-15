@@ -1,0 +1,18 @@
+main {
+    min-height:  100vh;
+    display: flex;
+    flex-direction: column;
+
+    h1 {
+        text-align: center;
+    }
+
+    .main-container {
+        flex-grow: 1;
+        display: flex;
+
+        app-my-kittens {
+            width: 20%;
+        }
+    }
+}
