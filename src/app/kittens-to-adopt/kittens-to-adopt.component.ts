@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { Kitten } from '../models/classes/kitten.class';
-import { KITTENSTOADOPT } from '../mock/mock-kittens';
 import { RefugeKittensService } from '../refuge-kittens.service';
 
 @Component({
@@ -17,21 +16,14 @@ export class KittensToAdoptComponent {
     this.getKittenToAdoptList();
   }
 
-  // getKittenToAdoptList(): void {
-  //   this.kittenToAdoptList = this.refugeKittenService.getKittensToAdopt()
-  // }
-
   getKittenToAdoptList(): void {
     this.refugeKittenService
       .getKittensToAdopt()
       .subscribe((kittenList) => this.kittenToAdoptListToMap = kittenList);
     }
 
-  onGetKittenToRemove(event: Kitten) {
-    this.refugeKittenService.removeKittenFromAdopt(event);
+  onGetKittenToRemove(event: Kitten, index: number) {
+    this.refugeKittenService.removeKittenFromAdopt(index);
 
-    // METHODE A EVITER N'AGIT PAS SUR LE SERVICE MAIS JUSTE SUR LA LISTE D'ICI
-    // const newKittenToAdoptList = this.kittenToAdoptList.filter((k) => k !== event)
-    // this.kittenToAdoptList = newKittenToAdoptList
   }
 }

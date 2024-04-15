@@ -32,14 +32,8 @@ export class RefugeKittensService {
     this.kittenToAdoptList.push(kitten);
   }
 
-  //ENLEVE LE CHATON DE LA LISTE EN FOCTION DU CHATON ADOPTE
-  removeKittenFromAdopt(kitten: Kitten): void {
-    const newKittenToAdopt = this.kittenToAdoptList.filter(
-      (kittenToAdopt) => kittenToAdopt !== kitten
-    );
-    this.kittenToAdoptList = newKittenToAdopt
-    console.log(this.kittenToAdoptList);
-    console.log(newKittenToAdopt)
+  removeKittenFromAdopt(index: number): void {
+    this.kittenToAdoptList.splice(index, 1)
   }
 
   addToMyKittens(kitten: Kitten): void {

@@ -1,9 +1,9 @@
-<main>
   <ul>
     <app-kitten-card
-      *ngFor="let kittenToAdopt of kittenToAdoptListToMap"
+      *ngFor="let kittenToAdopt of kittenToAdoptListToMap; let i = index"
       [kitten]="kittenToAdopt"
-      (removeKitten)="onGetKittenToRemove($event)"
+      [index]="i"
+      (removeKitten)="onGetKittenToRemove($event, i)"
     ></app-kitten-card>
   </ul>
-</main>
+

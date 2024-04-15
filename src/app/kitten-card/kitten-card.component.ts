@@ -9,6 +9,7 @@ import { RefugeKittensService } from '../refuge-kittens.service';
 })
 export class KittenCardComponent {
   @Input() kitten?: Kitten;
+  @Input() index: number = 0;
 
   @Output() removeKitten: EventEmitter<Kitten> = new EventEmitter();
 
@@ -19,12 +20,10 @@ export class KittenCardComponent {
   sendKitten(element: Kitten) {
     this.removeKitten.emit(element);
   }
-  adoptKitten(selectedKitten: Kitten): void {
+  adoptKitten(selectedKitten: Kitten, index: number): void {
     //AJOUTE LE CHATON A LA LISTE DE MES CHATONS DU SERVICE
     this.refugeKittenService.addToMyKittens(selectedKitten);
-    // this.sendKitten(selectedKitten); ==> SUITE DE LA METHODE A EVITER
 
-    //ENLEVE LE CHATON DE LA LISTE A ADOPTER DU SERVICE MAIS PAS DE MISE AJOUR APRES...
-    this.refugeKittenService.removeKittenFromAdopt(selectedKitten)
+    this.refugeKittenService.removeKittenFromAdopt(index)
   }
 }
