@@ -21,9 +21,7 @@ export class KittensToAdoptComponent {
 
 
   getKittenToAdoptList(): void {
-    this.kittenList$ = this.refugeKittenService
-    .getKittensToAdopt$()
-    .pipe(tap((v) => console.log("value in component... ", v)));
+    this.kittenList$ = this.refugeKittenService.getKittensToAdopt$()
   }
   
 }

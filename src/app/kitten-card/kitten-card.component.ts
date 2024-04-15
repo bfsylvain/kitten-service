@@ -16,7 +16,6 @@ export class KittenCardComponent {
 
   adoptKitten(selectedKitten: Kitten): void {
     this.refugeKittenService.addToMyKittens(selectedKitten);
-    console.log("trigger remove");
     this.refugeKittenService.removeKittenFromAdopt(selectedKitten);
   }
 }
