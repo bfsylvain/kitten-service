@@ -8,8 +8,8 @@ import { Observable, of } from 'rxjs';
   providedIn: 'root',
 })
 export class RefugeKittensService {
-  kittenToAdoptList: Kitten[] = KITTENSTOADOPT;
-  myKittenList: Kitten[] = MYKITTENS;
+  private kittenToAdoptList: Kitten[] = KITTENSTOADOPT;
+  private myKittenList: Kitten[] = MYKITTENS;
 
   constructor() {}
 
@@ -24,8 +24,6 @@ export class RefugeKittensService {
     return of(this.kittenToAdoptList)
   }
 
-
-
   getMyKittens(): Kitten[] {
     return this.myKittenList;
   }
@@ -39,8 +37,9 @@ export class RefugeKittensService {
     const newKittenToAdopt = this.kittenToAdoptList.filter(
       (kittenToAdopt) => kittenToAdopt !== kitten
     );
-    this.kittenToAdoptList = [...this.kittenToAdoptList, ...newKittenToAdopt]
+    this.kittenToAdoptList = newKittenToAdopt
     console.log(this.kittenToAdoptList);
+    console.log(newKittenToAdopt)
   }
 
   addToMyKittens(kitten: Kitten): void {

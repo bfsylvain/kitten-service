@@ -24,8 +24,7 @@ export class KittensToAdoptComponent {
   getKittenToAdoptList(): void {
     this.refugeKittenService
       .getKittensToAdopt()
-      .subscribe((kittenList) => {this.kittenToAdoptListToMap = kittenList, console.log("yyooooo", kittenList);
-      });
+      .subscribe((kittenList) => this.kittenToAdoptListToMap = kittenList);
     }
 
   onGetKittenToRemove(event: Kitten) {
