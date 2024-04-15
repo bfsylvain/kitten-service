@@ -1,0 +1,6 @@
+<article *ngIf="kitten">
+    <h3>{{kitten.name}}</h3>
+    <p>{{kitten.group}}</p>
+    <p>{{kitten.age}}</p>
+    <button (click)="adoptKitten(kitten)">Adopter</button>
+</article>
