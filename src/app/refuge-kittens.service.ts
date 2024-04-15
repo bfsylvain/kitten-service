@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { Kitten } from './models/classes/kitten.class';
 import { KITTENSTOADOPT } from './mock/mock-kittens';
 import { MYKITTENS } from './mock/mock-myKittens';
-import { Observable, of } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -13,15 +12,8 @@ export class RefugeKittensService {
 
   constructor() {}
 
-  // METHODE DE BASE CLASSIQUE POUR RECUPERER LA LISTE DANS LES COMPOSANTS
-  // getKittensToAdopt(): Kitten[] {
-  //   return this.kittenToAdoptList;
-  // }
-
-  // OBSERVABLE DE LA LISTE DE CHATONS A ADOPTER
-  getKittensToAdopt(): Observable<Kitten[]> {
-    console.log(this.kittenToAdoptList)
-    return of(this.kittenToAdoptList)
+  getKittensToAdopt(): Kitten[] {
+    return this.kittenToAdoptList;
   }
 
   getMyKittens(): Kitten[] {

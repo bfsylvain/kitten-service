@@ -16,10 +16,10 @@ export class KittensToAdoptComponent {
     this.getKittenToAdoptList();
   }
 
+
   getKittenToAdoptList(): void {
-    this.refugeKittenService
+    this.kittenToAdoptListToMap = this.refugeKittenService
       .getKittensToAdopt()
-      .subscribe((kittenList) => this.kittenToAdoptListToMap = kittenList);
     }
 
   onGetKittenToRemove(event: Kitten, index: number) {
