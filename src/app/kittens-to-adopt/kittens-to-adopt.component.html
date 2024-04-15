@@ -1,9 +1,10 @@
 <main>
   <ul>
-    <app-kitten-card
-      *ngFor="let kittenToAdopt of kittenToAdoptListToMap"
-      [kitten]="kittenToAdopt"
-      (removeKitten)="onGetKittenToRemove($event)"
-    ></app-kitten-card>
+    <ng-container *ngIf="(kittenList$ | async) as kittenList">
+      <app-kitten-card
+        *ngFor="let kittenToAdopt of kittenList"
+        [kitten]="kittenToAdopt"
+      ></app-kitten-card>
+    </ng-container>
   </ul>
 </main>

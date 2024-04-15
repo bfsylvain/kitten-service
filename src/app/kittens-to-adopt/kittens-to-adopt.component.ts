@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Kitten } from '../models/classes/kitten.class';
 import { KITTENSTOADOPT } from '../mock/mock-kittens';
 import { RefugeKittensService } from '../refuge-kittens.service';
+import { Observable, tap } from 'rxjs';
 
 @Component({
   selector: 'app-kittens-to-adopt',
@@ -9,7 +10,8 @@ import { RefugeKittensService } from '../refuge-kittens.service';
   styleUrl: './kittens-to-adopt.component.scss',
 })
 export class KittensToAdoptComponent {
-  kittenToAdoptListToMap: Kitten[] = [];
+
+  kittenList$!: Observable<Kitten[]>;
 
   constructor(private refugeKittenService: RefugeKittensService) {}
 
@@ -17,22 +19,11 @@ export class KittensToAdoptComponent {
     this.getKittenToAdoptList();
   }
 
-  // getKittenToAdoptList(): void {
-  //   this.kittenToAdoptList = this.refugeKittenService.getKittensToAdopt()
-  // }
 
   getKittenToAdoptList(): void {
-    this.refugeKittenService
-      .getKittensToAdopt()
-      .subscribe((kittenList) => {this.kittenToAdoptListToMap = kittenList, console.log("yyooooo", kittenList);
-      });
-    }
-
-  onGetKittenToRemove(event: Kitten) {
-    this.refugeKittenService.removeKittenFromAdopt(event);
-
-    // METHODE A EVITER N'AGIT PAS SUR LE SERVICE MAIS JUSTE SUR LA LISTE D'ICI
-    // const newKittenToAdoptList = this.kittenToAdoptList.filter((k) => k !== event)
-    // this.kittenToAdoptList = newKittenToAdoptList
+    this.kittenList$ = this.refugeKittenService
+    .getKittensToAdopt$()
+    .pipe(tap((v) => console.log("value in component... ", v)));
   }
+  
 }

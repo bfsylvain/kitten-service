@@ -2,28 +2,21 @@ import { Injectable } from '@angular/core';
 import { Kitten } from './models/classes/kitten.class';
 import { KITTENSTOADOPT } from './mock/mock-kittens';
 import { MYKITTENS } from './mock/mock-myKittens';
-import { Observable, of } from 'rxjs';
+import { BehaviorSubject, Observable, map, of, tap } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class RefugeKittensService {
-  kittenToAdoptList: Kitten[] = KITTENSTOADOPT;
+
+  private _kittenToAdoptList$: BehaviorSubject<Kitten[]> = new BehaviorSubject(KITTENSTOADOPT);
   myKittenList: Kitten[] = MYKITTENS;
 
   constructor() {}
 
-  // METHODE DE BASE CLASSIQUE POUR RECUPERER LA LISTE DANS LES COMPOSANTS
-  // getKittensToAdopt(): Kitten[] {
-  //   return this.kittenToAdoptList;
-  // }
-
-  // OBSERVABLE DE LA LISTE DE CHATONS A ADOPTER
-  getKittensToAdopt(): Observable<Kitten[]> {
-    console.log(this.kittenToAdoptList)
-    return of(this.kittenToAdoptList)
+  getKittensToAdopt$(): Observable<Kitten[]> {
+    return this._kittenToAdoptList$.asObservable();
   }
-
 
 
   getMyKittens(): Kitten[] {
@@ -31,16 +24,12 @@ export class RefugeKittensService {
   }
 
   addKittenToAdopt(kitten: Kitten): void {
-    this.kittenToAdoptList.push(kitten);
+    this._kittenToAdoptList$.next([...this._kittenToAdoptList$.value, kitten]);
   }
 
-  //ENLEVE LE CHATON DE LA LISTE EN FOCTION DU CHATON ADOPTE
   removeKittenFromAdopt(kitten: Kitten): void {
-    const newKittenToAdopt = this.kittenToAdoptList.filter(
-      (kittenToAdopt) => kittenToAdopt !== kitten
-    );
-    this.kittenToAdoptList = [...this.kittenToAdoptList, ...newKittenToAdopt]
-    console.log(this.kittenToAdoptList);
+    const updatedList = this._kittenToAdoptList$.value.filter((el: Kitten) => el.name !== kitten.name);
+    this._kittenToAdoptList$.next(updatedList);
   }
 
   addToMyKittens(kitten: Kitten): void {
