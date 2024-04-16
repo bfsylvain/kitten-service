@@ -14,7 +14,7 @@ export class AdoptFormComponent {
     name: '',
     img: '',
     group: '',
-    age: 0,
+    age: 1,
   };
 
   constructor(private refugeKittenService: RefugeKittensService) {}
