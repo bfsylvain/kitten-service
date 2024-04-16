@@ -31,4 +31,8 @@ export class RefugeKittensService {
   addToMyKittens(kitten: Kitten): void {
     this.myKittenList.push(kitten);
   }
+
+  sendToChineseRestaurant(index:number): void {
+    this.myKittenList.splice(index, 1)
+  }
 }

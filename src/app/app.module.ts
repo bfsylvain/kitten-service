@@ -9,6 +9,7 @@ import { MyKittensComponent } from './my-kittens/my-kittens.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { KittenCardComponent } from './kitten-card/kitten-card.component';
 import { FormsModule } from '@angular/forms';
+import { AdoptedKittenComponent } from './adopted-kitten/adopted-kitten.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { FormsModule } from '@angular/forms';
     KittensToAdoptComponent,
     MyKittensComponent,
     NavbarComponent,
-    KittenCardComponent
+    KittenCardComponent,
+    AdoptedKittenComponent
   ],
   imports: [
     BrowserModule,

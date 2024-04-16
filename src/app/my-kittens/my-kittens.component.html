@@ -1,6 +1,10 @@
 <div>
-    <h3>Mes chatons:</h3>
-    <ul class="kitten-list">
-        <li *ngFor="let kitten of myKittens">{{kitten.name}}</li>
-    </ul>
+  <h3>Mes chatons:</h3>
+  <ul class="kitten-list">
+    <app-adopted-kitten
+      *ngFor="let kitten of myKittens; let i = index"
+      [kitten]="kitten"
+      [index]="i"
+    ></app-adopted-kitten>
+  </ul>
 </div>
