@@ -4,7 +4,7 @@
   (ngSubmit)="registerForm.valid && age.value > 0 && createNewKittenToAdopt()"
 >
 <div class="error-message-area">
-  @if(registerForm.submitted && registerForm.invalid){<div class="error-message">Tous les champs ne sont pas valides</div>}
+  @if(registerForm.submitted && registerForm.invalid){<div class="error-message">Tous les champs ne sont pas ok</div>}
 </div>
   <fieldset>
     <label for="name">Nom : </label>
@@ -50,6 +50,6 @@
       required
     />
   </fieldset>
-  <button type="submit">Envoyer</button>
+  <button type="submit" [ngClass]="{'formValid':registerForm.valid}">Envoyer</button>
 </form>
 </div>

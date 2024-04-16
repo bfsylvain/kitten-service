@@ -20,9 +20,17 @@ form {
     fieldset {
         border: none;
     }
-
-    button {
-        align-self: center;
+    label {
+        display: block;
     }
+    button {
+        padding: 1em 1.5em;
+        align-self: center;
+        border-radius: 5px;
+    }
+    .formValid {
+        background-color: pink;
+    }
+
 }
 }
