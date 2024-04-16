@@ -1,6 +1,7 @@
-<article *ngIf="kitten">
-    <h3>{{kitten.name}}</h3>
+<article *ngIf="kitten" (mouseenter)="hoverElement()" (mouseleave)="unHoverElement()">
+    @if(!isHover){<img [src]="kitten.img" alt="">}
+    @if(isHover){<h3>{{kitten.name}}</h3>
     <p>{{kitten.group}}</p>
     <p>{{kitten.age}}</p>
-    <button (click)="adoptKitten(kitten, index)">Adopter</button>
+    <button (click)="adoptKitten(kitten, index)" >Adopter</button>}
 </article>

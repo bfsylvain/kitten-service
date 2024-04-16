@@ -1,8 +1,25 @@
-form {
-width: 80vw;
+.form-container {
+width: calc(100vw - 200px);
 min-height: 100vh;
 display: flex;
 flex-direction: column;
 align-items: center;
-padding-top: 40px;
+padding-top: 80px;
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    border: solid black 1px;
+    border-radius: 15px;
+    padding: 2em;
+
+    fieldset {
+        border: none;
+    }
+
+    button {
+        align-self: center;
+    }
+}
 }

@@ -10,8 +10,8 @@ import { RefugeKittensService } from '../refuge-kittens.service';
 export class KittenCardComponent {
   @Input() kitten?: Kitten;
   @Input() index: number = 0;
-
   @Output() removeKitten: EventEmitter<Kitten> = new EventEmitter();
+  isHover: boolean =false;
 
   constructor(private refugeKittenService: RefugeKittensService) {}
 
@@ -25,5 +25,13 @@ export class KittenCardComponent {
     this.refugeKittenService.addToMyKittens(selectedKitten);
 
     this.refugeKittenService.removeKittenFromAdopt(index)
+  }
+
+  hoverElement(): void {
+    this.isHover = true
+  }
+
+  unHoverElement(): void {
+    this.isHover = false;
   }
 }
