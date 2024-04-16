@@ -1,7 +1,6 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component } from '@angular/core';
 import { Kitten } from '../models/classes/kitten.class';
 import { RefugeKittensService } from '../refuge-kittens.service';
-import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-adopt-form',
@@ -9,7 +8,6 @@ import { NgForm } from '@angular/forms';
   styleUrl: './adopt-form.component.scss',
 })
 export class AdoptFormComponent {
-  // @ViewChild('registerForm') registerForm!: NgForm;
   kittenForm: Kitten = {
     name: '',
     img: '',
